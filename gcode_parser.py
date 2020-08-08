@@ -1,4 +1,4 @@
-class Parse:
+class GCODE_PARSE:
     def __init__(self, input_file):
         self.input_file = input_file
 
@@ -25,7 +25,7 @@ class Parse:
 
 #def main():
 #    input_file = "test.txt"
-#    gcode = Parse(input_file)
+#    gcode = GCODE_PARSE(input_file)
 #    gcode.parse()
 #
 #main()
