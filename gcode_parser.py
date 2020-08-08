@@ -10,6 +10,7 @@ class GCODE_PARSE:
         self.extrude = 0
     def parse(self):
         #parse the input file
+        
         ifile = open(self.input_file, "r")
         for line in ifile:
             parameters = line.split(" ")
