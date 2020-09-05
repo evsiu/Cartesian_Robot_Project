@@ -1,3 +1,14 @@
+;FLAVOR:Marlin
+;TIME:2197
+;Filament used: 0.528795m
+;Layer height: 0.1
+;MINX:14.7
+;MINY:32.2
+;MINZ:0.3
+;MAXX:85.3
+;MAXY:67.8
+;MAXZ:5
+;Generated with Cura_SteamEngine 4.6.2
 G1 X-9.2 Y-5.42 Z0.5 F3000.0 E0.0377
 G1 X-9.8 Y-3.42 Z2.5 F4500.0 E0.0487
 G1 F1800 X19.061 Y32.999 E0.01487
