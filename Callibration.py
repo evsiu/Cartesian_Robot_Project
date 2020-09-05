@@ -1,7 +1,8 @@
 import odrive
 from odrive.enums import *
-import time
+
 import math
+import time
 
 class ODrive_Callibration:
     def Axis_Param(self, axis, pid_param):
@@ -35,7 +36,7 @@ class ODrive_Callibration:
         #Apply PID settings to each axis
         print('Searching for ODrive(s)...')
         for i in range(len(serial_num)):
-            my_drive = odrive.find_any(serialNumbers[i])
+            my_drive = odrive.find_any(drives[i])
             self.Drive_Param(my_drive)
             drives.append(my_drive)
             print("ODrive " + serial_num + " Connected")
@@ -45,3 +46,22 @@ class ODrive_Callibration:
         for drive in drives:
             drive.axis0.requested_state = AXIS_STATE_FULL_CALIBRATION_SEQUENCE
             drive.axis1.requested_state = AXIS_STATE_FULL_CALIBRATION_SEQUENCE
+
+        while 1:
+            drivesNotCallibrated = 0
+            for drive in drives:
+                if drive.axis0.current_state != AXIS_STATE_IDLE or drive.axis1.current_state != AXIS_STATE_IDLE:
+                    drivesNotCallibrated += 1
+            if drivesNotCallibrated == 0:
+                break
+            time.sleep(0.1)
+            
+        for drive in drives:
+            drive.axis0.requested_state = AXIS_STATE_CLOSED_LOOP_CONTROL
+            drive.axis1.requested_state = AXIS_STATE_CLOSED_LOOP_CONTROL
+
+        return tuple(drives)
+
+#class Homing_Callibration:
+
+#class Bounds_Callibration:
