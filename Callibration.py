@@ -31,7 +31,6 @@ class ODrive_Callibration:
 
     def Initialize(self, serial_num):
         #Works if serial_num is single odrive or a list of odrives
-
         drives = []
         #Apply PID settings to each axis
         print('Searching for ODrive(s)...')
@@ -62,6 +61,11 @@ class ODrive_Callibration:
 
         return tuple(drives)
 
+    def Bounds_Callibration:
+        curr_amp_axis0 = 
+
+
 #class Homing_Callibration:
+    #def Bounds_Callibration:
 
 #class Bounds_Callibration:
